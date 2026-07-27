@@ -27,7 +27,8 @@ FetchContent_MakeAvailable(glad)
 
 # Specify glad settings
 glad_add_library(glad_gl_core_46 REPRODUCIBLE API gl:core=4.6)
+file(GLOB src "src/*.cpp")
 
-add_executable(TKStudio "TKStudio/main.cpp")
+add_executable(TKStudio "TKStudio/main.cpp" ${src})
 target_link_libraries(TKStudio glfw glad_gl_core_46)
 target_include_directories(TKStudio PRIVATE "include")
