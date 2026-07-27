@@ -15,6 +15,6 @@ public:
   void run();
 
 private:
-  GLFWwindow* window;
+  GLFWwindow* m_window;
 };
 } // namespace TKStudio

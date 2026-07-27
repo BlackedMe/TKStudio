@@ -12,14 +12,14 @@ Application::Application(int width, int height, const std::string& title)
   if (!glfwInit())
     return;
 
-  window = glfwCreateWindow(width, height, title.c_str(), 0, 0);
+  m_window = glfwCreateWindow(width, height, title.c_str(), 0, 0);
 
-  if (!window) {
+  if (!m_window) {
     glfwTerminate();
     return;
   }
 
-  glfwMakeContextCurrent(window);
+  glfwMakeContextCurrent(m_window);
 
   // Initialize GLAD
   if (!gladLoadGL(glfwGetProcAddress))
@@ -30,9 +30,9 @@ Application::~Application() { glfwTerminate(); }
 
 void Application::run()
 {
-  glfwMakeContextCurrent(window);
+  glfwMakeContextCurrent(m_window);
 
-  while (!glfwWindowShouldClose(window)) {
+  while (!glfwWindowShouldClose(m_window)) {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glfwSwapBuffers(window);
