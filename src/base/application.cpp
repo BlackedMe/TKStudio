@@ -1,4 +1,4 @@
-#include "application.h"
+#include "base/application.h"
 
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
@@ -24,6 +24,11 @@ Application::Application(int width, int height, const std::string& title)
   // Initialize GLAD
   if (!gladLoadGL(glfwGetProcAddress))
     return;
+
+  int x, y;
+  glfwGetFramebufferSize(m_window, &x, &y);
+  glViewport(0, 0, x, y);
+  mySpace.init();
 }
 
 Application::~Application() { glfwTerminate(); }
@@ -35,7 +40,9 @@ void Application::run()
   while (!glfwWindowShouldClose(m_window)) {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glfwSwapBuffers(window);
+    mySpace.drawGrid();
+
+    glfwSwapBuffers(m_window);
 
     glfwPollEvents();
   }

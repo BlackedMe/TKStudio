@@ -40,7 +40,8 @@ glad_add_library(glad_gl_core_46 REPRODUCIBLE API gl:core=4.6)
 #--------------------------------------------------------------------
 
 file(GLOB src "src/*.cpp")
+file(GLOB base "src/base/*.cpp")
 
-add_executable(TKStudio "TKStudio/main.cpp" ${src})
+add_executable(TKStudio "TKStudio/main.cpp" ${src} ${base})
 target_link_libraries(TKStudio glfw glad_gl_core_46)
 target_include_directories(TKStudio PRIVATE "include")

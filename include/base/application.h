@@ -1,5 +1,8 @@
+#include "TKSpace.h"
 #include <string>
+
 class GLFWwindow;
+class Config;
 
 namespace TKStudio {
 
@@ -16,5 +19,7 @@ public:
 
 private:
   GLFWwindow* m_window;
+
+  TKSpace mySpace;
 };
 } // namespace TKStudio
