@@ -8,6 +8,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #--------------------------------------------------------------------
 # Setup libraries
 #--------------------------------------------------------------------
+
+# Setup GLFW
 include(FetchContent)
 FetchContent_Declare(
   glfw
@@ -15,6 +17,15 @@ FetchContent_Declare(
   GIT_TAG 7b6aead9fb88b3623e3b3725ebb42670cbe4c579 # 3.4
 )
 
+# Specify glfw settings
+set(GLFW_BUILD_EXAMPLES OFF)
+set(GLFW_BUILD_TESTS OFF)
+set(GLFW_BUILD_DOCS OFF)
+
+FetchContent_MakeAvailable(glfw)
+#--------------------------------------------------------------------
+
+# Setup Glad
 FetchContent_Declare(
   glad
   GIT_REPOSITORY https://github.com/Dav1dde/glad.git
@@ -22,11 +33,12 @@ FetchContent_Declare(
   SOURCE_SUBDIR cmake
 )
 
-FetchContent_MakeAvailable(glfw)
 FetchContent_MakeAvailable(glad)
 
 # Specify glad settings
 glad_add_library(glad_gl_core_46 REPRODUCIBLE API gl:core=4.6)
+#--------------------------------------------------------------------
+
 file(GLOB src "src/*.cpp")
 
 add_executable(TKStudio "TKStudio/main.cpp" ${src})
