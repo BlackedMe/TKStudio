@@ -28,7 +28,6 @@ Application::Application(int width, int height, const std::string& title)
   int x, y;
   glfwGetFramebufferSize(m_window, &x, &y);
   glViewport(0, 0, x, y);
-  mySpace.init();
 }
 
 Application::~Application() { glfwTerminate(); }
@@ -39,8 +38,6 @@ void Application::run()
 
   while (!glfwWindowShouldClose(m_window)) {
     glClear(GL_COLOR_BUFFER_BIT);
-
-    mySpace.drawGrid();
 
     glfwSwapBuffers(m_window);
 

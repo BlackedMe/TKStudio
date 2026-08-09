@@ -1,4 +1,3 @@
-#include "TKSpace.h"
 #include <string>
 
 class GLFWwindow;
@@ -19,7 +18,5 @@ public:
 
 private:
   GLFWwindow* m_window;
-
-  TKSpace mySpace;
 };
 } // namespace TKStudio
