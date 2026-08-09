@@ -1,7 +1,6 @@
 #include <string>
 
 class GLFWwindow;
-class Config;
 
 namespace TKStudio {
 
